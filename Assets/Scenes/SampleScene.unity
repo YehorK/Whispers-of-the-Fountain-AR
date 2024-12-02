@@ -501,7 +501,7 @@ MonoBehaviour:
   PreviewVisible: 1
   RuntimeOcclusion: 0
   RuntimeCollider: 0
-  mTrackableName: qr-code
+  mTrackableName: qr-code_1
   mInitializedInEditor: 1
   mDataSetPath: Vuforia/Whispers-of-the-Fountain-AR.xml
   mAspectRatio: 1
@@ -557,7 +557,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mObserverBehaviour: {fileID: 731782869}
   mHiddenRoot: {fileID: 0}
-  mTargetName: qr-code
+  mTargetName: qr-code_1
   mDatasetName: Vuforia/Whispers-of-the-Fountain-AR.xml
   mCastedBehaviour: {fileID: 731782869}
   mMeshFilter: {fileID: 0}
