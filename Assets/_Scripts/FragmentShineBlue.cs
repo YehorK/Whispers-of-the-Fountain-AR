@@ -30,7 +30,7 @@ public class FragmentShineBlue : MonoBehaviour
         shineSpeed = shineIntensity / shineDuration;
 
         // Start the periodic shine effect
-        Debug.Log("Getting to invokerepeating");
+        //Debug.Log("Getting to invokerepeating");
         InvokeRepeating("ToggleShine", 0f, shineDuration);  // Toggle shine every 'shineDuration' seconds
     }
 
@@ -47,7 +47,7 @@ public class FragmentShineBlue : MonoBehaviour
     // This method toggles the shining effect
     private void ToggleShine()
     {
-        Debug.Log("shining");
+        //Debug.Log("shining");
         // Flip the shine state
         isShining = !isShining;
     }

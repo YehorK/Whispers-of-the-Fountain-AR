@@ -5,26 +5,46 @@ using UnityEngine;
 public class FragmentCollected : MonoBehaviour
 {
     public GameObject targetObject; // The object to toggle visibility
+    public KeyCode testKey = KeyCode.Space; // Key for testing on PC
 
     void Update()
     {
-        // Check for screen tap
-        if (Input.GetMouseButtonDown(0)) // For touch devices, a tap is registered as mouse button 0
+        // Check for screen tap or mouse click
+        if (Input.GetMouseButtonDown(0)) // For touch devices or left mouse button
         {
-            // Cast a ray to check what was tapped
-            Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-            if (Physics.Raycast(ray, out RaycastHit hit))
+            HandleInteraction();
+        }
+
+        // Allow testing with a keyboard key
+        if (Input.GetKeyDown(testKey))
+        {
+            Debug.Log("Testing fragment collection via key press.");
+            CollectFragment();
+        }
+    }
+
+    private void HandleInteraction()
+    {
+        // Cast a ray from the camera to the screen tap position
+        Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+        if (Physics.Raycast(ray, out RaycastHit hit))
+        {
+            // Check if the hit object is this fragment or its child
+            if (hit.transform == transform || hit.transform.IsChildOf(transform))
             {
-                // Check if the hit object is the ImageTarget or its child
-                if (hit.transform == transform || hit.transform.IsChildOf(transform))
-                {
-                    // Toggle the target object's visibility
-                    if (targetObject != null)
-                    {
-                        targetObject.SetActive(!targetObject.activeSelf);
-                    }
-                }
+                Debug.Log($"{gameObject.name} tapped.");
+                CollectFragment();
             }
+        }
+    }
+
+    private void CollectFragment()
+    {
+        // Make the target object disappear
+        if (targetObject != null)
+        {
+            targetObject.SetActive(false);
+            Debug.Log($"{gameObject.name} collected and hidden.");
         }
     }
 }
