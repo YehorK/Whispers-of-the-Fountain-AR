@@ -155,7 +155,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   targetObject: {fileID: 498808881}
-  testKey: 32
 --- !u!114 &498808884
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -542,7 +541,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   targetObject: {fileID: 731782867}
-  testKey: 32
 --- !u!114 &731782872
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -578,7 +576,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &1212723628
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -829,7 +827,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   targetObject: {fileID: 1874087918}
-  testKey: 32
 --- !u!114 &1874087921
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -1,25 +1,39 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class FragmentCollected : MonoBehaviour
 {
     public GameObject targetObject; // The object to toggle visibility
     public KeyCode testKey = KeyCode.Space; // Key for testing on PC
+    private GameProgressManager progressManager;
+
+    void Start()
+    {
+        // Find the GameProgressManager in the scene
+        progressManager = FindObjectOfType<GameProgressManager>();
+    }
 
     void Update()
     {
-        // Check for screen tap or mouse click
-        if (Input.GetMouseButtonDown(0)) // For touch devices or left mouse button
+        // Check for screen tap
+        if (Input.GetMouseButtonDown(0)) // Touch or left mouse button
         {
             HandleInteraction();
         }
 
-        // Allow testing with a keyboard key
+        // Allow testing with the space key
         if (Input.GetKeyDown(testKey))
         {
-            Debug.Log("Testing fragment collection via key press.");
-            CollectFragment();
+            Debug.Log("Testing fragment collection via space key.");
+            if (progressManager != null && progressManager.IsFragmentActive(gameObject))
+            {
+                Debug.Log($"{gameObject.name} collected via test key!");
+                CollectFragment();
+                progressManager.UnlockNextFragment();
+            }
+            else
+            {
+                Debug.Log("This fragment is not active yet.");
+            }
         }
     }
 
@@ -32,19 +46,27 @@ public class FragmentCollected : MonoBehaviour
             // Check if the hit object is this fragment or its child
             if (hit.transform == transform || hit.transform.IsChildOf(transform))
             {
-                Debug.Log($"{gameObject.name} tapped.");
-                CollectFragment();
+                // Check if this fragment is the currently active one
+                if (progressManager != null && progressManager.IsFragmentActive(gameObject))
+                {
+                    Debug.Log($"{gameObject.name} collected!");
+                    CollectFragment();
+                    progressManager.UnlockNextFragment();
+                }
+                else
+                {
+                    Debug.Log($"{gameObject.name} is not active yet.");
+                }
             }
         }
     }
 
     private void CollectFragment()
     {
-        // Make the target object disappear
+        // Hide or deactivate the target object
         if (targetObject != null)
         {
             targetObject.SetActive(false);
-            Debug.Log($"{gameObject.name} collected and hidden.");
         }
     }
 }
