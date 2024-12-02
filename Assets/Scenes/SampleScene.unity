@@ -141,7 +141,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &498808883
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -149,12 +149,12 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 498808881}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: fba8e97899ee141439c64309769264c7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  targetObject: {fileID: 2039659572}
+  targetObject: {fileID: 498808881}
   testKey: 32
 --- !u!114 &498808884
 MonoBehaviour:
@@ -215,7 +215,7 @@ MonoBehaviour:
   PreviewVisible: 1
   RuntimeOcclusion: 0
   RuntimeCollider: 0
-  mTrackableName: qr-code
+  mTrackableName: qr-code_2
   mInitializedInEditor: 1
   mDataSetPath: Vuforia/Whispers-of-the-Fountain-AR.xml
   mAspectRatio: 1
@@ -257,7 +257,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mObserverBehaviour: {fileID: 498808885}
   mHiddenRoot: {fileID: 0}
-  mTargetName: qr-code
+  mTargetName: qr-code_2
   mDatasetName: Vuforia/Whispers-of-the-Fountain-AR.xml
   mCastedBehaviour: {fileID: 498808885}
   mMeshFilter: {fileID: 0}
@@ -791,11 +791,6 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8914c03c69e47824db63507752cea3ab, type: 3}
---- !u!1 &1371830063 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 7186697792411571427, guid: 8914c03c69e47824db63507752cea3ab, type: 3}
-  m_PrefabInstance: {fileID: 1371830062}
-  m_PrefabAsset: {fileID: 0}
 --- !u!4 &1371830064 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7563680384663604825, guid: 8914c03c69e47824db63507752cea3ab, type: 3}
@@ -820,7 +815,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &1874087920
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -828,12 +823,12 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1874087918}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: fba8e97899ee141439c64309769264c7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  targetObject: {fileID: 1371830063}
+  targetObject: {fileID: 1874087918}
   testKey: 32
 --- !u!114 &1874087921
 MonoBehaviour:
@@ -894,7 +889,7 @@ MonoBehaviour:
   PreviewVisible: 1
   RuntimeOcclusion: 0
   RuntimeCollider: 0
-  mTrackableName: qr-code
+  mTrackableName: qr-code_3
   mInitializedInEditor: 1
   mDataSetPath: Vuforia/Whispers-of-the-Fountain-AR.xml
   mAspectRatio: 1
@@ -936,7 +931,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mObserverBehaviour: {fileID: 1874087922}
   mHiddenRoot: {fileID: 0}
-  mTargetName: qr-code
+  mTargetName: qr-code_3
   mDatasetName: Vuforia/Whispers-of-the-Fountain-AR.xml
   mCastedBehaviour: {fileID: 1874087922}
   mMeshFilter: {fileID: 0}
@@ -1002,11 +997,6 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8914c03c69e47824db63507752cea3ab, type: 3}
---- !u!1 &2039659572 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 7186697792411571427, guid: 8914c03c69e47824db63507752cea3ab, type: 3}
-  m_PrefabInstance: {fileID: 2039659571}
-  m_PrefabAsset: {fileID: 0}
 --- !u!4 &2039659573 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7563680384663604825, guid: 8914c03c69e47824db63507752cea3ab, type: 3}
