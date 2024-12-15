@@ -155,6 +155,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   targetObject: {fileID: 498808881}
+  testKey: 32
 --- !u!114 &498808884
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -214,13 +215,13 @@ MonoBehaviour:
   PreviewVisible: 1
   RuntimeOcclusion: 0
   RuntimeCollider: 0
-  mTrackableName: qr-code_2
+  mTrackableName: target3
   mInitializedInEditor: 1
-  mDataSetPath: Vuforia/Whispers-of-the-Fountain-AR.xml
+  mDataSetPath: Vuforia/Whispers-AR.xml
   mAspectRatio: 1
   mImageTargetType: 0
-  mWidth: 2
-  mHeight: 2
+  mWidth: 1
+  mHeight: 1
   mRuntimeTexture: {fileID: 0}
   mMotionHint: 1
   mTrackingOptimization: 0
@@ -235,7 +236,7 @@ Transform:
   m_GameObject: {fileID: 498808881}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 10, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -256,8 +257,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mObserverBehaviour: {fileID: 498808885}
   mHiddenRoot: {fileID: 0}
-  mTargetName: qr-code_2
-  mDatasetName: Vuforia/Whispers-of-the-Fountain-AR.xml
+  mTargetName: target3
+  mDatasetName: Vuforia/Whispers-AR.xml
   mCastedBehaviour: {fileID: 498808885}
   mMeshFilter: {fileID: 0}
   mMeshRenderer: {fileID: 0}
@@ -372,8 +373,20 @@ PrefabInstance:
       value: crystal_10
       objectReference: {fileID: 0}
     - target: {fileID: 7563680384663604825, guid: 8914c03c69e47824db63507752cea3ab, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7563680384663604825, guid: 8914c03c69e47824db63507752cea3ab, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7563680384663604825, guid: 8914c03c69e47824db63507752cea3ab, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 0.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7563680384663604825, guid: 8914c03c69e47824db63507752cea3ab, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -0
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7563680384663604825, guid: 8914c03c69e47824db63507752cea3ab, type: 3}
       propertyPath: m_LocalPosition.y
@@ -393,7 +406,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7563680384663604825, guid: 8914c03c69e47824db63507752cea3ab, type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 7563680384663604825, guid: 8914c03c69e47824db63507752cea3ab, type: 3}
       propertyPath: m_LocalRotation.z
@@ -500,13 +513,13 @@ MonoBehaviour:
   PreviewVisible: 1
   RuntimeOcclusion: 0
   RuntimeCollider: 0
-  mTrackableName: qr-code_1
+  mTrackableName: target2
   mInitializedInEditor: 1
-  mDataSetPath: Vuforia/Whispers-of-the-Fountain-AR.xml
+  mDataSetPath: Vuforia/Whispers-AR.xml
   mAspectRatio: 1
   mImageTargetType: 0
-  mWidth: 2
-  mHeight: 2
+  mWidth: 1
+  mHeight: 1
   mRuntimeTexture: {fileID: 0}
   mMotionHint: 1
   mTrackingOptimization: 0
@@ -521,7 +534,7 @@ Transform:
   m_GameObject: {fileID: 731782867}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 5, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -541,6 +554,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   targetObject: {fileID: 731782867}
+  testKey: 32
 --- !u!114 &731782872
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -555,9 +569,149 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mObserverBehaviour: {fileID: 731782869}
   mHiddenRoot: {fileID: 0}
-  mTargetName: qr-code_1
-  mDatasetName: Vuforia/Whispers-of-the-Fountain-AR.xml
+  mTargetName: target2
+  mDatasetName: Vuforia/Whispers-AR.xml
   mCastedBehaviour: {fileID: 731782869}
+  mMeshFilter: {fileID: 0}
+  mMeshRenderer: {fileID: 0}
+--- !u!1 &775041061
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 775041066}
+  - component: {fileID: 775041065}
+  - component: {fileID: 775041064}
+  - component: {fileID: 775041063}
+  - component: {fileID: 775041067}
+  m_Layer: 0
+  m_Name: --- Ending
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &775041063
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 775041061}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fba8e97899ee141439c64309769264c7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  targetObject: {fileID: 775041061}
+  testKey: 32
+--- !u!114 &775041064
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 775041061}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 886328de6a5c14cbb85854fdf1a5085b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  StatusFilter: 1
+  UsePoseSmoothing: 0
+  AnimationCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 3.3333333
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    - serializedVersion: 3
+      time: 0.3
+      value: 1
+      inSlope: 3.3333333
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  OnTargetFound:
+    m_PersistentCalls:
+      m_Calls: []
+  OnTargetLost:
+    m_PersistentCalls:
+      m_Calls: []
+--- !u!114 &775041065
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 775041061}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -1631628248, guid: 8a9a760f95896c34689febc965510927, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  PreviewVisible: 1
+  RuntimeOcclusion: 0
+  RuntimeCollider: 0
+  mTrackableName: target5
+  mInitializedInEditor: 1
+  mDataSetPath: Vuforia/Whispers-AR.xml
+  mAspectRatio: 1
+  mImageTargetType: 0
+  mWidth: 1
+  mHeight: 1
+  mRuntimeTexture: {fileID: 0}
+  mMotionHint: 1
+  mTrackingOptimization: 0
+  mTrackingOptimizationNeedsUpgrade: 0
+  mPreview: {fileID: 775041067}
+--- !u!4 &775041066
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 775041061}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 20, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 1447175239}
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &775041067
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 775041061}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 1778676317, guid: 8a9a760f95896c34689febc965510927, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  mObserverBehaviour: {fileID: 775041065}
+  mHiddenRoot: {fileID: 0}
+  mTargetName: target5
+  mDatasetName: Vuforia/Whispers-AR.xml
+  mCastedBehaviour: {fileID: 775041065}
   mMeshFilter: {fileID: 0}
   mMeshRenderer: {fileID: 0}
 --- !u!1 &1212723627
@@ -590,9 +744,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   fragments:
+  - {fileID: 1562380484}
   - {fileID: 731782867}
   - {fileID: 498808881}
   - {fileID: 1874087918}
+  - {fileID: 775041061}
 --- !u!4 &1212723629
 Transform:
   m_ObjectHideFlags: 0
@@ -671,7 +827,7 @@ Camera:
   m_GameObject: {fileID: 1225256056}
   m_Enabled: 1
   serializedVersion: 2
-  m_ClearFlags: 2
+  m_ClearFlags: 1
   m_BackGroundColor: {r: 0, g: 0, b: 0, a: 1}
   m_projectionMatrixMode: 1
   m_GateFitMode: 2
@@ -745,8 +901,20 @@ PrefabInstance:
       value: crystal_10
       objectReference: {fileID: 0}
     - target: {fileID: 7563680384663604825, guid: 8914c03c69e47824db63507752cea3ab, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7563680384663604825, guid: 8914c03c69e47824db63507752cea3ab, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7563680384663604825, guid: 8914c03c69e47824db63507752cea3ab, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 0.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7563680384663604825, guid: 8914c03c69e47824db63507752cea3ab, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -0
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7563680384663604825, guid: 8914c03c69e47824db63507752cea3ab, type: 3}
       propertyPath: m_LocalPosition.y
@@ -766,7 +934,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7563680384663604825, guid: 8914c03c69e47824db63507752cea3ab, type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 7563680384663604825, guid: 8914c03c69e47824db63507752cea3ab, type: 3}
       propertyPath: m_LocalRotation.z
@@ -794,6 +962,224 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 7563680384663604825, guid: 8914c03c69e47824db63507752cea3ab, type: 3}
   m_PrefabInstance: {fileID: 1371830062}
   m_PrefabAsset: {fileID: 0}
+--- !u!1001 &1447175238
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 775041066}
+    m_Modifications:
+    - target: {fileID: -4010007917450244870, guid: 8914c03c69e47824db63507752cea3ab, type: 3}
+      propertyPath: shineIntensity
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 7186697792411571427, guid: 8914c03c69e47824db63507752cea3ab, type: 3}
+      propertyPath: m_Name
+      value: crystal_10
+      objectReference: {fileID: 0}
+    - target: {fileID: 7563680384663604825, guid: 8914c03c69e47824db63507752cea3ab, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7563680384663604825, guid: 8914c03c69e47824db63507752cea3ab, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7563680384663604825, guid: 8914c03c69e47824db63507752cea3ab, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 0.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7563680384663604825, guid: 8914c03c69e47824db63507752cea3ab, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7563680384663604825, guid: 8914c03c69e47824db63507752cea3ab, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7563680384663604825, guid: 8914c03c69e47824db63507752cea3ab, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7563680384663604825, guid: 8914c03c69e47824db63507752cea3ab, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7563680384663604825, guid: 8914c03c69e47824db63507752cea3ab, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0.000000021855694
+      objectReference: {fileID: 0}
+    - target: {fileID: 7563680384663604825, guid: 8914c03c69e47824db63507752cea3ab, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7563680384663604825, guid: 8914c03c69e47824db63507752cea3ab, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7563680384663604825, guid: 8914c03c69e47824db63507752cea3ab, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7563680384663604825, guid: 8914c03c69e47824db63507752cea3ab, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7563680384663604825, guid: 8914c03c69e47824db63507752cea3ab, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 8914c03c69e47824db63507752cea3ab, type: 3}
+--- !u!4 &1447175239 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 7563680384663604825, guid: 8914c03c69e47824db63507752cea3ab, type: 3}
+  m_PrefabInstance: {fileID: 1447175238}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &1562380484
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1562380489}
+  - component: {fileID: 1562380488}
+  - component: {fileID: 1562380487}
+  - component: {fileID: 1562380486}
+  - component: {fileID: 1562380490}
+  m_Layer: 0
+  m_Name: --- Introduction
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1562380486
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1562380484}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fba8e97899ee141439c64309769264c7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  targetObject: {fileID: 1562380484}
+  testKey: 32
+--- !u!114 &1562380487
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1562380484}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 886328de6a5c14cbb85854fdf1a5085b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  StatusFilter: 1
+  UsePoseSmoothing: 0
+  AnimationCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 3.3333333
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    - serializedVersion: 3
+      time: 0.3
+      value: 1
+      inSlope: 3.3333333
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  OnTargetFound:
+    m_PersistentCalls:
+      m_Calls: []
+  OnTargetLost:
+    m_PersistentCalls:
+      m_Calls: []
+--- !u!114 &1562380488
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1562380484}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -1631628248, guid: 8a9a760f95896c34689febc965510927, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  PreviewVisible: 1
+  RuntimeOcclusion: 0
+  RuntimeCollider: 0
+  mTrackableName: target1
+  mInitializedInEditor: 1
+  mDataSetPath: Vuforia/Whispers-AR.xml
+  mAspectRatio: 1
+  mImageTargetType: 0
+  mWidth: 1
+  mHeight: 1
+  mRuntimeTexture: {fileID: 0}
+  mMotionHint: 1
+  mTrackingOptimization: 0
+  mTrackingOptimizationNeedsUpgrade: 0
+  mPreview: {fileID: 1562380490}
+--- !u!4 &1562380489
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1562380484}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 2141522441}
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1562380490
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1562380484}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 1778676317, guid: 8a9a760f95896c34689febc965510927, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  mObserverBehaviour: {fileID: 1562380488}
+  mHiddenRoot: {fileID: 0}
+  mTargetName: target1
+  mDatasetName: Vuforia/Whispers-AR.xml
+  mCastedBehaviour: {fileID: 1562380488}
+  mMeshFilter: {fileID: 0}
+  mMeshRenderer: {fileID: 0}
 --- !u!1 &1874087918
 GameObject:
   m_ObjectHideFlags: 0
@@ -827,6 +1213,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   targetObject: {fileID: 1874087918}
+  testKey: 32
 --- !u!114 &1874087921
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -886,13 +1273,13 @@ MonoBehaviour:
   PreviewVisible: 1
   RuntimeOcclusion: 0
   RuntimeCollider: 0
-  mTrackableName: qr-code_3
+  mTrackableName: target4
   mInitializedInEditor: 1
-  mDataSetPath: Vuforia/Whispers-of-the-Fountain-AR.xml
+  mDataSetPath: Vuforia/Whispers-AR.xml
   mAspectRatio: 1
   mImageTargetType: 0
-  mWidth: 2
-  mHeight: 2
+  mWidth: 1
+  mHeight: 1
   mRuntimeTexture: {fileID: 0}
   mMotionHint: 1
   mTrackingOptimization: 0
@@ -907,7 +1294,7 @@ Transform:
   m_GameObject: {fileID: 1874087918}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 15, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -928,8 +1315,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mObserverBehaviour: {fileID: 1874087922}
   mHiddenRoot: {fileID: 0}
-  mTargetName: qr-code_3
-  mDatasetName: Vuforia/Whispers-of-the-Fountain-AR.xml
+  mTargetName: target4
+  mDatasetName: Vuforia/Whispers-AR.xml
   mCastedBehaviour: {fileID: 1874087922}
   mMeshFilter: {fileID: 0}
   mMeshRenderer: {fileID: 0}
@@ -950,8 +1337,20 @@ PrefabInstance:
       value: crystal_10
       objectReference: {fileID: 0}
     - target: {fileID: 7563680384663604825, guid: 8914c03c69e47824db63507752cea3ab, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7563680384663604825, guid: 8914c03c69e47824db63507752cea3ab, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7563680384663604825, guid: 8914c03c69e47824db63507752cea3ab, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 0.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7563680384663604825, guid: 8914c03c69e47824db63507752cea3ab, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -0
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7563680384663604825, guid: 8914c03c69e47824db63507752cea3ab, type: 3}
       propertyPath: m_LocalPosition.y
@@ -971,7 +1370,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7563680384663604825, guid: 8914c03c69e47824db63507752cea3ab, type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 7563680384663604825, guid: 8914c03c69e47824db63507752cea3ab, type: 3}
       propertyPath: m_LocalRotation.z
@@ -999,13 +1398,77 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 7563680384663604825, guid: 8914c03c69e47824db63507752cea3ab, type: 3}
   m_PrefabInstance: {fileID: 2039659571}
   m_PrefabAsset: {fileID: 0}
+--- !u!1001 &2141522440
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 1562380489}
+    m_Modifications:
+    - target: {fileID: -8679921383154817045, guid: 9c9b0d188669d424b85f240933f809dd, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -0.032
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 9c9b0d188669d424b85f240933f809dd, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.109
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 9c9b0d188669d424b85f240933f809dd, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0.06
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 9c9b0d188669d424b85f240933f809dd, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 9c9b0d188669d424b85f240933f809dd, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 9c9b0d188669d424b85f240933f809dd, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 9c9b0d188669d424b85f240933f809dd, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 9c9b0d188669d424b85f240933f809dd, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 9c9b0d188669d424b85f240933f809dd, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 9c9b0d188669d424b85f240933f809dd, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 90
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 9c9b0d188669d424b85f240933f809dd, type: 3}
+      propertyPath: m_Name
+      value: Book3_Closed
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 9c9b0d188669d424b85f240933f809dd, type: 3}
+--- !u!4 &2141522441 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 9c9b0d188669d424b85f240933f809dd, type: 3}
+  m_PrefabInstance: {fileID: 2141522440}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
   m_Roots:
   - {fileID: 705507995}
   - {fileID: 1225256061}
+  - {fileID: 1562380489}
   - {fileID: 731782870}
   - {fileID: 498808886}
   - {fileID: 1874087923}
+  - {fileID: 775041066}
   - {fileID: 1212723629}
