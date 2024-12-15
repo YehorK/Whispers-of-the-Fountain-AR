@@ -200,6 +200,11 @@ Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 034cb96d8bda94772a4d3ccf67a43e96, type: 3}
   m_PrefabInstance: {fileID: 32506882}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &227544243 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 034cb96d8bda94772a4d3ccf67a43e96, type: 3}
+  m_PrefabInstance: {fileID: 32506882}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &310042414
 GameObject:
   m_ObjectHideFlags: 0
@@ -441,12 +446,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0df8facd8e0054eab9027c0f11c57069, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  targetObject: {fileID: 1388330022}
+  targetObject: {fileID: 498808881}
   crystalObject: {fileID: 608103066}
   journalObject: {fileID: 1388330022}
   firstSound: {fileID: 8300000, guid: 15a5ba820d7b00c4d818189653e256ab, type: 3}
-  interactionSound: {fileID: 8300000, guid: b2652bbbbf4143344b47dd3dcdbabd04, type: 3}
+  interactionSound: {fileID: 8300000, guid: 03d8d8cfc110f9e40a9d685093bfa24c, type: 3}
   testKey: 32
+--- !u!1 &575116620 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7186697792411571427, guid: 8914c03c69e47824db63507752cea3ab, type: 3}
+  m_PrefabInstance: {fileID: 1371830062}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &608103066 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 7186697792411571427, guid: 8914c03c69e47824db63507752cea3ab, type: 3}
@@ -1044,6 +1054,11 @@ PrefabInstance:
 --- !u!4 &878441464 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 7b65d713c7ff3e845876298a934aae59, type: 3}
+  m_PrefabInstance: {fileID: 878441463}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &878441465 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 7b65d713c7ff3e845876298a934aae59, type: 3}
   m_PrefabInstance: {fileID: 878441463}
   m_PrefabAsset: {fileID: 0}
 --- !u!1 &1212723627
@@ -1805,8 +1820,8 @@ GameObject:
   - component: {fileID: 1874087923}
   - component: {fileID: 1874087922}
   - component: {fileID: 1874087921}
-  - component: {fileID: 1874087920}
   - component: {fileID: 1874087924}
+  - component: {fileID: 1874087925}
   m_Layer: 0
   m_Name: --- Fragment 3
   m_TagString: Untagged
@@ -1814,20 +1829,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &1874087920
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1874087918}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fba8e97899ee141439c64309769264c7, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  targetObject: {fileID: 1874087918}
-  testKey: 32
 --- !u!114 &1874087921
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1936,6 +1937,26 @@ MonoBehaviour:
   mCastedBehaviour: {fileID: 1874087922}
   mMeshFilter: {fileID: 0}
   mMeshRenderer: {fileID: 0}
+--- !u!114 &1874087925
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1874087918}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f0ae1ddbd5b2745408e79c7f577ef3ef, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  targetObject: {fileID: 1874087918}
+  crystalObject: {fileID: 575116620}
+  journalObject: {fileID: 878441465}
+  spider: {fileID: 227544243}
+  firstSound: {fileID: 8300000, guid: 915ab4bd44919f24ca7e5bab08461af6, type: 3}
+  interactionSound: {fileID: 8300000, guid: 03d8d8cfc110f9e40a9d685093bfa24c, type: 3}
+  testKey: 32
+  shakeThreshold: 2
 --- !u!1001 &2039659571
 PrefabInstance:
   m_ObjectHideFlags: 0
