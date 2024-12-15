@@ -3,11 +3,27 @@ using UnityEngine;
 public class IntroScript : MonoBehaviour
 {
     public GameObject targetObject; // The object to toggle visibility
-    public KeyCode testKey = KeyCode.Space; // Key for testing on PC
+    public GameObject textObject; // The text to hide first
+    public AudioClip firstSound; // First sound clip to play
+    public AudioClip secondSound; // Second sound clip to play
+    public KeyCode testKey = KeyCode.Space;
     private GameProgressManager progressManager;
+    private int interactionCount = 0;
+    private AudioSource audioSource; // Single AudioSource component
 
     void Start()
     {
+        // Get or add an AudioSource component
+        audioSource = GetComponent<AudioSource>();
+        if (audioSource == null)
+        {
+            audioSource = gameObject.AddComponent<AudioSource>();
+        }
+        
+        // Configure the AudioSource default settings
+        audioSource.playOnAwake = false;
+        audioSource.loop = false;
+
         // Find the GameProgressManager in the scene
         progressManager = FindObjectOfType<GameProgressManager>();
     }
@@ -23,41 +39,80 @@ public class IntroScript : MonoBehaviour
         // Allow testing with the space key
         if (Input.GetKeyDown(testKey))
         {
-            Debug.Log("Testing fragment collection via space key.");
+            HandleInteraction(true);
+        }
+    }
+
+    private void HandleInteraction(bool isTest = false)
+    {
+        if (isTest) {
+            // Check if this fragment is the currently active one
             if (progressManager != null && progressManager.IsFragmentActive(gameObject))
             {
-                Debug.Log($"{gameObject.name} collected via test key!");
-                CollectFragment();
-                progressManager.UnlockNextFragment();
+                ProcessSequence();
             }
             else
             {
-                Debug.Log("This fragment is not active yet.");
+                Debug.Log($"{gameObject.name} is not active yet.");
+            }
+        } else {
+            // Cast a ray from the camera to the screen tap position
+            Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+            if (Physics.Raycast(ray, out RaycastHit hit))
+            {
+                // Check if the hit object is this fragment or its child
+                if (hit.transform == transform || hit.transform.IsChildOf(transform))
+                {
+                    // Check if this fragment is the currently active one
+                    if (progressManager != null && progressManager.IsFragmentActive(gameObject))
+                    {
+                        ProcessSequence();
+                    }
+                    else
+                    {
+                        Debug.Log($"{gameObject.name} is not active yet.");
+                    }
+                }
             }
         }
     }
 
-    private void HandleInteraction()
+    private void ProcessSequence()
     {
-        // Cast a ray from the camera to the screen tap position
-        Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-        if (Physics.Raycast(ray, out RaycastHit hit))
+        switch (interactionCount)
         {
-            // Check if the hit object is this fragment or its child
-            if (hit.transform == transform || hit.transform.IsChildOf(transform))
-            {
-                // Check if this fragment is the currently active one
-                if (progressManager != null && progressManager.IsFragmentActive(gameObject))
+            case 0: // First interaction
+                if (textObject != null)
                 {
-                    Debug.Log($"{gameObject.name} collected!");
-                    CollectFragment();
-                    progressManager.UnlockNextFragment();
+                    textObject.SetActive(false);
+                    Debug.Log("Text deactivated");
                 }
-                else
-                {
-                    Debug.Log($"{gameObject.name} is not active yet.");
-                }
-            }
+                PlaySound(firstSound);
+                Debug.Log("Playing first sound");
+                break;
+            case 1: // Second interaction
+                PlaySound(secondSound);
+                Debug.Log("Playing second sound");
+                break;
+            case 2: // Fourth interaction
+                CollectFragment();
+                progressManager.UnlockNextFragment();
+                Debug.Log("Fragment collected and next unlocked");
+                break;
+        }
+
+        if (interactionCount < 4)
+        {
+            interactionCount++;
+        }
+    }
+
+    private void PlaySound(AudioClip clip)
+    {
+        if (clip != null && audioSource != null)
+        {
+            audioSource.clip = clip;
+            audioSource.Play();
         }
     }
 
