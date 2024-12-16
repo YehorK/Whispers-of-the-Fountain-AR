@@ -4,16 +4,17 @@ using UnityEngine;
 
 public class Frag3Interactions : MonoBehaviour
 {
-    public GameObject targetObject; // The object to toggle visibility
-    public GameObject crystalObject; // Object to hide
-    public GameObject journalObject; // Object to show
-    public GameObject spider; // New spider object to hide
-    public AudioClip firstSound; // First sound clip to play
-    public AudioClip interactionSound; // Sound to play
-    public KeyCode testKey = KeyCode.Space;
-    public float shakeThreshold = 2.0f; // Threshold for shake detection
+    [SerializeField] GameObject crystalObject; // Object to hide
+    [SerializeField] GameObject journalObject; // Object to show
+    [SerializeField] GameObject thisImageTarget; // Parent Image target of the this gameobject
+
+    [SerializeField] AudioClip firstSound; // First sound clip to play
+    [SerializeField] AudioClip interactionSound; // Sound to play
+
+    [SerializeField] GameObject spider; // New spider object to hide
+    [SerializeField] float shakeThreshold = 2.0f; // Threshold for shake detection
+
     private GameProgressManager progressManager;
-    private int interactionCount = 0;
     private AudioSource audioSource; // Single AudioSource component
     private bool spiderRemoved = false; // Track if spider is already gone
 
@@ -42,52 +43,42 @@ public class Frag3Interactions : MonoBehaviour
         // Check for shake first
         if (!spiderRemoved && Input.acceleration.magnitude > shakeThreshold)
         {
-            ProcessSequence();
+            spider.SetActive(false);
+            Debug.Log("Spider removed by shaking");
             spiderRemoved = true;
         }
 
-        // Check for screen tap
-        if (Input.GetMouseButtonDown(0)) // Touch or left mouse button
+        // FOR DEBUGGING PURPOSES ONLY
+        if (!spiderRemoved && Input.GetKey(KeyCode.A))
+        {
+            spider.SetActive(false);
+            Debug.Log("Spider removed by shaking");
+            spiderRemoved = true;
+        }
+
+        if (spiderRemoved && Input.GetMouseButtonDown(0))
         {
             HandleInteraction();
         }
-
-        // Allow testing with the space key
-        if (Input.GetKeyDown(testKey))
-        {
-            HandleInteraction(true);
-        }
     }
 
-    private void HandleInteraction(bool isTest = false)
+    private void HandleInteraction()
     {
-        if (isTest) {
-            // Check if this fragment is the currently active one
-            if (progressManager != null && progressManager.IsFragmentActive(gameObject))
+        // Cast a ray from the camera to the screen tap position
+        Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+        if (Physics.Raycast(ray, out RaycastHit hit))
+        {
+            // Check if the hit object is this fragment or its child
+            if (hit.transform == transform || hit.transform.IsChildOf(transform))
             {
-                ProcessSequence();
-            }
-            else
-            {
-                Debug.Log($"{gameObject.name} is not active yet.");
-            }
-        } else {
-            // Cast a ray from the camera to the screen tap position
-            Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-            if (Physics.Raycast(ray, out RaycastHit hit))
-            {
-                // Check if the hit object is this fragment or its child
-                if (hit.transform == transform || hit.transform.IsChildOf(transform))
+                // Check if this fragment is the currently active one
+                if (progressManager != null && progressManager.IsFragmentActive(thisImageTarget))
                 {
-                    // Check if this fragment is the currently active one
-                    if (progressManager != null && progressManager.IsFragmentActive(gameObject))
-                    {
-                        ProcessSequence();
-                    }
-                    else
-                    {
-                        Debug.Log($"{gameObject.name} is not active yet.");
-                    }
+                    ProcessSequence();
+                }
+                else
+                {
+                    Debug.Log($"{gameObject.name} is not active yet.");
                 }
             }
         }
@@ -95,36 +86,30 @@ public class Frag3Interactions : MonoBehaviour
 
     private void ProcessSequence()
     {
-        switch (interactionCount)
-        {
-            case 0: // New first interaction - shake to remove spider
-                if (spider != null)
-                {
-                    spider.SetActive(false);
-                    Debug.Log("Spider removed by shaking");
-                }
-                break;
-            
-            case 1: // Previous case 0
-                if (crystalObject != null)
-                    crystalObject.SetActive(false);
-                if (journalObject != null)
-                    journalObject.SetActive(true);
-                PlaySound(interactionSound);
-                PlaySound(firstSound);
-                Debug.Log("Crystal hidden, journal shown");
-                break;
-            
-            case 2: // Previous case 1
-                CollectFragment();
-                progressManager.UnlockNextFragment();
-                Debug.Log("Fragment collected and next unlocked");
-                break;
-        }
+        if (crystalObject != null)
+            crystalObject.SetActive(false);
 
-        if (interactionCount < 3) // Updated max count
+        if (journalObject != null)
+            journalObject.SetActive(true);
+
+        PlaySound(interactionSound);
+        PlaySound(firstSound);
+
+        Debug.Log("Crystal hidden, journal shown");
+
+        float audioClipsLength = interactionSound.length + firstSound.length;
+        StartCoroutine(DelayedUnlockNextFragment(audioClipsLength));
+    }
+
+    private IEnumerator DelayedUnlockNextFragment(float delay)
+    {
+        delay = delay + 1;
+        yield return new WaitForSeconds(delay);
+
+        if (progressManager != null)
         {
-            interactionCount++;
+            progressManager.UnlockNextFragment();
+            Debug.Log("Fragment collected and next unlocked");
         }
     }
 
@@ -137,12 +122,4 @@ public class Frag3Interactions : MonoBehaviour
         }
     }
 
-    private void CollectFragment()
-    {
-        // Hide or deactivate the target object
-        if (targetObject != null)
-        {
-            targetObject.SetActive(false);
-        }
-    }
 }
