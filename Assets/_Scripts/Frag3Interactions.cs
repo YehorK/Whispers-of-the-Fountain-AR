@@ -4,15 +4,15 @@ using UnityEngine;
 
 public class Frag3Interactions : MonoBehaviour
 {
-    [SerializeField] GameObject crystalObject; // Object to hide
-    [SerializeField] GameObject journalObject; // Object to show
-    [SerializeField] GameObject thisImageTarget; // Parent Image target of the this gameobject
+    [SerializeField] private GameObject crystalObject; // Object to hide
+    [SerializeField] private GameObject journalObject; // Object to show
+    [SerializeField] private GameObject thisImageTarget; // Parent Image target of the this gameobject
 
-    [SerializeField] AudioClip firstSound; // First sound clip to play
-    [SerializeField] AudioClip interactionSound; // Sound to play
+    [SerializeField] private AudioClip firstSound; // First sound clip to play
+    [SerializeField] private AudioClip interactionSound; // Sound to play
 
-    [SerializeField] GameObject spider; // New spider object to hide
-    [SerializeField] float shakeThreshold = 2.0f; // Threshold for shake detection
+    [SerializeField] private GameObject spider; // New spider object to hide
+    [SerializeField] private float shakeThreshold = 2.0f; // Threshold for shake detection
 
     private GameProgressManager progressManager;
     private AudioSource audioSource; // Single AudioSource component

@@ -3,12 +3,12 @@ using UnityEngine;
 
 public class IntroScript : MonoBehaviour
 {
-    [SerializeField] GameObject textObject; // The text to hide first
-    [SerializeField] GameObject thisImageTarget; // the parent ImageTarget
-    [SerializeField] AudioClip firstSound; // First sound clip to play
-    [SerializeField] AudioClip secondSound; // Second sound clip to play
+    [SerializeField] private GameObject textObject; // The text to hide first
+    [SerializeField] private GameObject thisImageTarget; // the parent ImageTarget
+    [SerializeField] private AudioClip firstSound; // First sound clip to play
+    [SerializeField] private AudioClip secondSound; // Second sound clip to play
 
-    [SerializeField] GameProgressManager progressManager;
+    [SerializeField] private GameProgressManager progressManager;
 
     private bool hasInteracted = false;
     private AudioSource audioSource; // Single AudioSource component

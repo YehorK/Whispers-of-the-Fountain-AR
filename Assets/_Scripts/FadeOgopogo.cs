@@ -3,12 +3,14 @@ using UnityEngine;
 
 public class FadeOgopogo : MonoBehaviour
 {
-    [SerializeField] public GameObject targetObject; // Object to fade
-    [SerializeField] public float fadeDuration = 0.5f; // Duration of the fade effect, reduced to make it faster
-    [SerializeField] public bool fadeOut = true; // Set true for fade-out, false for fade-in
+    [SerializeField] private GameObject targetObject; // Object to fade
+    [SerializeField] private float fadeDuration = 0.5f; // Duration of the fade effect, reduced to make it faster
+    [SerializeField] private bool fadeOut = true; // Set true for fade-out, false for fade-in
 
     public AudioSource audioSource; // AudioSource component
     private bool fadedOut = false;
+
+    private GameProgressManager progressManager;
 
     private void Start()
     {
@@ -18,6 +20,9 @@ public class FadeOgopogo : MonoBehaviour
         {
             Debug.LogError("AudioSource is not attached to this GameObject!");
         }
+
+        // Find the GameProgressManager in the scene
+        progressManager = FindObjectOfType<GameProgressManager>();
     }
 
     private void Update()
@@ -107,6 +112,11 @@ public class FadeOgopogo : MonoBehaviour
         {
             targetObject.SetActive(false);
             Debug.Log("Target object deactivated after fade-out.");
+        }
+
+        if (progressManager != null)
+        {
+            progressManager.UnlockNextFragment();
         }
     }
 }
