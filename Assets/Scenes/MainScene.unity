@@ -531,8 +531,8 @@ GameObject:
   - component: {fileID: 498808886}
   - component: {fileID: 498808885}
   - component: {fileID: 498808884}
-  - component: {fileID: 498808888}
   - component: {fileID: 498808889}
+  - component: {fileID: 498808890}
   m_Layer: 0
   m_Name: Fragment 2 ImageTarget
   m_TagString: Untagged
@@ -610,7 +610,7 @@ MonoBehaviour:
   mMotionHint: 1
   mTrackingOptimization: 0
   mTrackingOptimizationNeedsUpgrade: 0
-  mPreview: {fileID: 498808889}
+  mPreview: {fileID: 498808890}
 --- !u!4 &498808886
 Transform:
   m_ObjectHideFlags: 0
@@ -628,7 +628,7 @@ Transform:
   - {fileID: 2039659573}
   m_Father: {fileID: 1994572616}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &498808888
+--- !u!114 &498808889
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -637,16 +637,16 @@ MonoBehaviour:
   m_GameObject: {fileID: 498808881}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0df8facd8e0054eab9027c0f11c57069, type: 3}
+  m_Script: {fileID: 11500000, guid: 96937232bfb153f409ec3d1c03a92ca0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  targetObject: {fileID: 498808881}
   crystalObject: {fileID: 608103066}
   journalObject: {fileID: 1388330022}
+  thisImageTarget: {fileID: 498808881}
   firstSound: {fileID: 8300000, guid: 15a5ba820d7b00c4d818189653e256ab, type: 3}
   interactionSound: {fileID: 8300000, guid: 03d8d8cfc110f9e40a9d685093bfa24c, type: 3}
   testKey: 32
---- !u!114 &498808889
+--- !u!114 &498808890
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -866,8 +866,8 @@ GameObject:
   - component: {fileID: 731782870}
   - component: {fileID: 731782869}
   - component: {fileID: 731782868}
-  - component: {fileID: 731782871}
   - component: {fileID: 731782872}
+  - component: {fileID: 731782873}
   m_Layer: 0
   m_Name: Fragment 1 ImageTarget
   m_TagString: Untagged
@@ -945,7 +945,7 @@ MonoBehaviour:
   mMotionHint: 1
   mTrackingOptimization: 0
   mTrackingOptimizationNeedsUpgrade: 0
-  mPreview: {fileID: 731782872}
+  mPreview: {fileID: 731782873}
 --- !u!4 &731782870
 Transform:
   m_ObjectHideFlags: 0
@@ -963,7 +963,7 @@ Transform:
   - {fileID: 713961158}
   m_Father: {fileID: 999683433}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &731782871
+--- !u!114 &731782872
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -972,7 +972,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 731782867}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c255a1067853e44dfa38c0f77b94265e, type: 3}
+  m_Script: {fileID: 11500000, guid: 96937232bfb153f409ec3d1c03a92ca0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   crystalObject: {fileID: 1704877452}
@@ -981,7 +981,7 @@ MonoBehaviour:
   firstSound: {fileID: 8300000, guid: c136e1add8b038c44bc7d6be5c7ce0c5, type: 3}
   interactionSound: {fileID: 8300000, guid: 03d8d8cfc110f9e40a9d685093bfa24c, type: 3}
   testKey: 32
---- !u!114 &731782872
+--- !u!114 &731782873
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -3181,13 +3181,37 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 7186697792411571427, guid: 8914c03c69e47824db63507752cea3ab, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 2039659577}
   m_SourcePrefab: {fileID: 100100000, guid: 8914c03c69e47824db63507752cea3ab, type: 3}
 --- !u!4 &2039659573 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7563680384663604825, guid: 8914c03c69e47824db63507752cea3ab, type: 3}
   m_PrefabInstance: {fileID: 2039659571}
   m_PrefabAsset: {fileID: 0}
+--- !u!65 &2039659577
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 608103066}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 4.0155473, y: 8.616016, z: 3.9277303}
+  m_Center: {x: -0.0014874935, y: 4.308008, z: -0.08400595}
 --- !u!1001 &2141522440
 PrefabInstance:
   m_ObjectHideFlags: 0
