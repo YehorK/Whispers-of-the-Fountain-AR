@@ -1461,7 +1461,6 @@ GameObject:
   - component: {fileID: 775041072}
   - component: {fileID: 775041071}
   - component: {fileID: 775041073}
-  - component: {fileID: 775041074}
   m_Layer: 0
   m_Name: Ending ImageTarget
   m_TagString: Untagged
@@ -1727,22 +1726,6 @@ MonoBehaviour:
   mCastedBehaviour: {fileID: 775041065}
   mMeshFilter: {fileID: 0}
   mMeshRenderer: {fileID: 0}
---- !u!114 &775041074
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 775041061}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a05504fedc31f834482f4c11a352ae79, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  targetObject: {fileID: 1793089056}
-  fadeDuration: 1
-  fadeOut: 1
-  audioSource: {fileID: 1560241472}
 --- !u!1 &819224575 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 7b65d713c7ff3e845876298a934aae59, type: 3}
@@ -2686,6 +2669,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 1fa11ed3f1ce644648e99652d20932c5, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1560241472}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 1fa11ed3f1ce644648e99652d20932c5, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1560241473}
   m_SourcePrefab: {fileID: 100100000, guid: 1fa11ed3f1ce644648e99652d20932c5, type: 3}
 --- !u!4 &1560241469 stripped
 Transform:
@@ -2814,6 +2800,22 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &1560241473
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1560241470}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a05504fedc31f834482f4c11a352ae79, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  targetObject: {fileID: 1793089056}
+  fadeDuration: 1
+  fadeOut: 1
+  audioSource: {fileID: 1560241472}
 --- !u!1 &1562380484
 GameObject:
   m_ObjectHideFlags: 0
