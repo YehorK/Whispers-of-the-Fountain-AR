@@ -31,6 +31,7 @@ public class GameProgressManager : MonoBehaviour
         else
         {
             Debug.Log("All fragments unlocked!");
+            fragments[currentProgressIndex].SetActive(false);
         }
     }
 
