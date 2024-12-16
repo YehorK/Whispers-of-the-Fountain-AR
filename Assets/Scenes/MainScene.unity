@@ -1686,7 +1686,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 775041061}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 24f979c8b17bad644bdfe0605948f66f, type: 3}
   m_Name: 
@@ -1829,7 +1829,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7186697792411571427, guid: 8914c03c69e47824db63507752cea3ab, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7563680384663604825, guid: 8914c03c69e47824db63507752cea3ab, type: 3}
       propertyPath: m_LocalScale.x
@@ -2527,7 +2527,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7186697792411571427, guid: 8914c03c69e47824db63507752cea3ab, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7563680384663604825, guid: 8914c03c69e47824db63507752cea3ab, type: 3}
       propertyPath: m_LocalScale.x
@@ -2665,7 +2665,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 1fa11ed3f1ce644648e99652d20932c5, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -3115,7 +3115,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7186697792411571427, guid: 8914c03c69e47824db63507752cea3ab, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7563680384663604825, guid: 8914c03c69e47824db63507752cea3ab, type: 3}
       propertyPath: m_LocalScale.x
