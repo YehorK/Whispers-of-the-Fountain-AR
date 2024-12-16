@@ -1,15 +1,15 @@
-using System;
-using System.Collections; // Required for IEnumerator and coroutines
+using System.Collections;
 using UnityEngine;
 
 public class FadeOgopogo : MonoBehaviour
 {
     [SerializeField] public GameObject targetObject; // Object to fade
-    [SerializeField] public float fadeDuration = 1.0f; // Duration of the fade effect
+    [SerializeField] public float fadeDuration = 0.5f; // Duration of the fade effect, reduced to make it faster
     [SerializeField] public bool fadeOut = true; // Set true for fade-out, false for fade-in
 
     public AudioSource audioSource; // AudioSource component
     private bool fadedOut = false;
+
     private void Start()
     {
         // Ensure the AudioSource component is attached
@@ -20,9 +20,10 @@ public class FadeOgopogo : MonoBehaviour
         }
     }
 
-    public void Update()
+    private void Update()
     {
-        if (!fadedOut)
+        // Only check for audio status once per frame, no need for StartFading call every frame
+        if (!fadedOut && !audioSource.isPlaying)
         {
             StartFading();
         }
@@ -49,27 +50,13 @@ public class FadeOgopogo : MonoBehaviour
             Debug.Log("Target object activated!");
         }
 
-        // Start checking for when the audio stops playing
-        StartCoroutine(WaitForSoundToEnd());
-    }
-
-    private IEnumerator WaitForSoundToEnd()
-    {
-        // Wait until the AudioSource stops playing
-        while (audioSource.isPlaying)
-        {
-            // Debug.Log("Audio is playing...");
-            yield return null; // Wait for the next frame
-        }
-
-        // If AudioSource stops playing, proceed to fading
-        Debug.Log("Audio finished playing, starting fade...");
+        // Start the fade process directly, no need to wait for audio inside a coroutine
         Renderer[] objectRenderers = targetObject.GetComponentsInChildren<Renderer>();
         if (objectRenderers.Length > 0)
         {
             foreach (Renderer objectRenderer in objectRenderers)
             {
-                // Debug.Log("Fading effect on Renderer: " + objectRenderer.name);
+                // Directly fade each renderer without checking each frame
                 StartCoroutine(FadeObject(objectRenderer, fadeOut));
             }
         }
@@ -92,6 +79,7 @@ public class FadeOgopogo : MonoBehaviour
             float startAlpha = isFadingOut ? initialColor.a : 1f;
             float endAlpha = isFadingOut ? 0f : 1f;
 
+            // Fade loop
             while (elapsedTime < fadeDuration)
             {
                 elapsedTime += Time.deltaTime;
@@ -102,6 +90,7 @@ public class FadeOgopogo : MonoBehaviour
                 newColor.a = alpha;
                 material.color = newColor;
 
+                // Yield after each frame to avoid freezing the game
                 yield return null;
             }
 
@@ -111,7 +100,7 @@ public class FadeOgopogo : MonoBehaviour
             material.color = finalColor;
         }
 
-        fadedOut = true; //avoid the script running again.
+        fadedOut = true; // Avoid the script running again
 
         // Optionally, deactivate the object when fade-out completes
         if (isFadingOut)
