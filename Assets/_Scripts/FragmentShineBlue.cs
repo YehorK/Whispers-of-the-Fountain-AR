@@ -5,8 +5,8 @@ using UnityEngine;
 public class FragmentShineBlue : MonoBehaviour
 {
     [SerializeField] private float shineDuration = 1f;   // Duration of the shine (in seconds)
-    [SerializeField] private Color shineColor = Color.blue;  // The color the crystal will shine with
-    [SerializeField] private float shineIntensity = 5f;   // How intense the shine should be
+    [SerializeField] public Color shineColor = Color.blue;  // The color the crystal will shine with
+    [SerializeField] public float shineIntensity = 5f;   // How intense the shine should be
     private Material crystalMaterial;
     private float currentEmissionIntensity = 0f;
     private bool isShining = false;
