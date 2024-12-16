@@ -7,9 +7,9 @@ public class IntroScript : MonoBehaviour
     [SerializeField] GameObject thisImageTarget; // the parent ImageTarget
     [SerializeField] AudioClip firstSound; // First sound clip to play
     [SerializeField] AudioClip secondSound; // Second sound clip to play
-    [SerializeField] KeyCode testKey = KeyCode.Space;
+
     [SerializeField] GameProgressManager progressManager;
-    private int interactionCount = 0;
+
     private AudioSource audioSource; // Single AudioSource component
 
     void Start()
@@ -36,43 +36,25 @@ public class IntroScript : MonoBehaviour
         {
             HandleInteraction();
         }
-
-        // Allow testing with the space key
-        if (Input.GetKeyDown(testKey))
-        {
-            HandleInteraction(true);
-        }
     }
 
-    private void HandleInteraction(bool isTest = false)
+    private void HandleInteraction()
     {
-        if (isTest) {
-            // Check if this fragment is the currently active one
-            if (progressManager != null && progressManager.IsFragmentActive(thisImageTarget))
+        // Cast a ray from the camera to the screen tap position
+        Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+        if (Physics.Raycast(ray, out RaycastHit hit))
+        {
+            // Check if the hit object is this fragment or its child
+            if (hit.transform == transform || hit.transform.IsChildOf(transform))
             {
-                ProcessSequence();
-            }
-            else
-            {
-                Debug.Log($"{gameObject.name} is not active yet.");
-            }
-        } else {
-            // Cast a ray from the camera to the screen tap position
-            Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-            if (Physics.Raycast(ray, out RaycastHit hit))
-            {
-                // Check if the hit object is this fragment or its child
-                if (hit.transform == transform || hit.transform.IsChildOf(transform))
+                // Check if this fragment is the currently active one
+                if (progressManager != null && progressManager.IsFragmentActive(thisImageTarget))
                 {
-                    // Check if this fragment is the currently active one
-                    if (progressManager != null && progressManager.IsFragmentActive(thisImageTarget))
-                    {
-                        ProcessSequence();
-                    }
-                    else
-                    {
-                        Debug.Log($"{gameObject.name} is not active yet.");
-                    }
+                    ProcessSequence();
+                }
+                else
+                {
+                    Debug.Log($"{gameObject.name} is not active yet.");
                 }
             }
         }
@@ -80,30 +62,19 @@ public class IntroScript : MonoBehaviour
 
     private void ProcessSequence()
     {
-        switch (interactionCount)
+        if (textObject != null)
         {
-            case 0: // First interaction
-                if (textObject != null)
-                {
-                    textObject.SetActive(false);
-                    Debug.Log("Text deactivated");
-                }
-                PlaySound(firstSound);
-                Debug.Log("Playing first sound");
-                break;
-
-            case 1: // Second interaction
-                PlaySound(secondSound);
-                Debug.Log("Playing second sound");
-                StartCoroutine(DelayedUnlockNextFragment(secondSound.length));
-                break;
+            textObject.SetActive(false);
+            Debug.Log("Text deactivated");
         }
 
-        //if (interactionCount < 4)
-        //{
-        //    interactionCount++;
-        //}
-        interactionCount++;
+        PlaySound(firstSound);
+        Debug.Log("Playing first sound");
+
+        PlaySound(secondSound);
+        Debug.Log("Playing second sound");
+
+        StartCoroutine(DelayedUnlockNextFragment(secondSound.length));
     }
 
     private IEnumerator DelayedUnlockNextFragment(float delay)
@@ -117,7 +88,6 @@ public class IntroScript : MonoBehaviour
             Debug.Log("Fragment collected and next unlocked");
         }
     }
-
 
     private void PlaySound(AudioClip clip)
     {

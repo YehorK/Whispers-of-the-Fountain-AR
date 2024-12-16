@@ -8,7 +8,6 @@ public class FragmentsBasicInteraction : MonoBehaviour
     [SerializeField] GameObject thisImageTarget; // Parent Image target of the this gameobject
     [SerializeField] AudioClip firstSound; // First sound clip to play
     [SerializeField] AudioClip interactionSound; // Sound to play
-    [SerializeField] KeyCode testKey = KeyCode.Space;
 
     private GameProgressManager progressManager;
     private AudioSource audioSource; // Single AudioSource component
@@ -40,46 +39,25 @@ public class FragmentsBasicInteraction : MonoBehaviour
         {
             HandleInteraction();
         }
-
-        // Allow testing with the space key
-        if (Input.GetKeyDown(testKey))
-        {
-            HandleInteraction(true);
-        }
     }
 
-    private void HandleInteraction(bool isTest = false)
+    private void HandleInteraction()
     {
-        if (isTest)
+        // Cast a ray from the camera to the screen tap position
+        Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+        if (Physics.Raycast(ray, out RaycastHit hit))
         {
-            // Check if this fragment is the currently active one
-            if (progressManager != null && progressManager.IsFragmentActive(thisImageTarget))
+            // Check if the hit object is this fragment or its child
+            if (hit.transform == transform || hit.transform.IsChildOf(transform))
             {
-                ProcessSequence();
-            }
-            else
-            {
-                Debug.Log($"{gameObject.name} is not active yet.");
-            }
-        }
-        else
-        {
-            // Cast a ray from the camera to the screen tap position
-            Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-            if (Physics.Raycast(ray, out RaycastHit hit))
-            {
-                // Check if the hit object is this fragment or its child
-                if (hit.transform == transform || hit.transform.IsChildOf(transform))
+                // Check if this fragment is the currently active one
+                if (progressManager != null && progressManager.IsFragmentActive(thisImageTarget))
                 {
-                    // Check if this fragment is the currently active one
-                    if (progressManager != null && progressManager.IsFragmentActive(thisImageTarget))
-                    {
-                        ProcessSequence();
-                    }
-                    else
-                    {
-                        Debug.Log($"{gameObject.name} is not active yet.");
-                    }
+                    ProcessSequence();
+                }
+                else
+                {
+                    Debug.Log($"{gameObject.name} is not active yet.");
                 }
             }
         }
@@ -88,9 +66,15 @@ public class FragmentsBasicInteraction : MonoBehaviour
     private void ProcessSequence()
     {
         if (crystalObject != null)
-            crystalObject.SetActive(false);
+        {
+            crystalObject.SetActive(true);
+        }
+
         if (journalObject != null)
+        {
             journalObject.SetActive(true);
+        }
+
         PlaySound(interactionSound);
         PlaySound(firstSound);
         Debug.Log("Crystal hidden, journal shown");
