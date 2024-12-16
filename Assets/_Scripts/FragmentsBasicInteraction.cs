@@ -3,11 +3,11 @@ using UnityEngine;
 
 public class FragmentsBasicInteraction : MonoBehaviour
 {
-    [SerializeField] GameObject crystalObject; // Object to hide
-    [SerializeField] GameObject journalObject; // Object to show
-    [SerializeField] GameObject thisImageTarget; // Parent Image target of the this gameobject
-    [SerializeField] AudioClip firstSound; // First sound clip to play
-    [SerializeField] AudioClip interactionSound; // Sound to play
+    [SerializeField] private GameObject crystalObject; // Object to hide
+    [SerializeField] private GameObject journalObject; // Object to show
+    [SerializeField] private GameObject thisImageTarget; // Parent Image target of the this gameobject
+    [SerializeField] private AudioClip firstSound; // First sound clip to play
+    [SerializeField] private AudioClip interactionSound; // Sound to play
 
     private GameProgressManager progressManager;
     private AudioSource audioSource; // Single AudioSource component

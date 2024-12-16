@@ -1,5 +1,6 @@
 using UnityEngine;
 
+// THIS SCRIPT CURRENTLY IS NOT BEING USED
 public class ActivateEndFragments : MonoBehaviour
 {
     public AudioSource audioSource; // Assign the AudioSource in the Inspector
