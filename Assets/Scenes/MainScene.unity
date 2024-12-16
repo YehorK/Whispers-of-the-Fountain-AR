@@ -2813,7 +2813,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   targetObject: {fileID: 1793089056}
-  fadeDuration: 1
+  fadeDuration: 2
   fadeOut: 1
   audioSource: {fileID: 1560241472}
 --- !u!1 &1562380484
