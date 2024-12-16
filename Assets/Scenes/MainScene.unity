@@ -286,6 +286,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 7b65d713c7ff3e845876298a934aae59, type: 3}
       insertIndex: -1
       addedObject: {fileID: 146784409}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 7b65d713c7ff3e845876298a934aae59, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 146784412}
   m_SourcePrefab: {fileID: 100100000, guid: 7b65d713c7ff3e845876298a934aae59, type: 3}
 --- !u!4 &146784402 stripped
 Transform:
@@ -308,7 +311,7 @@ AudioSource:
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: b87af332519d99f40b9284893b36e5fb, type: 3}
-  m_PlayOnAwake: 1
+  m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
   Loop: 0
@@ -393,6 +396,18 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &146784412
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 146784403}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: af36b8bc238eedb468f97e0cc54d9d86, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &227544243 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 034cb96d8bda94772a4d3ccf67a43e96, type: 3}
@@ -1456,7 +1471,6 @@ GameObject:
   - component: {fileID: 775041066}
   - component: {fileID: 775041065}
   - component: {fileID: 775041064}
-  - component: {fileID: 775041068}
   - component: {fileID: 775041069}
   - component: {fileID: 775041072}
   - component: {fileID: 775041071}
@@ -1508,7 +1522,19 @@ MonoBehaviour:
     m_RotationOrder: 4
   OnTargetFound:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 146784412}
+        m_TargetAssemblyTypeName: JournalAudioEnding, Assembly-CSharp
+        m_MethodName: PlayAudio
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   OnTargetLost:
     m_PersistentCalls:
       m_Calls: []
@@ -1557,28 +1583,6 @@ Transform:
   - {fileID: 653391324}
   m_Father: {fileID: 1036520379}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &775041068
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 775041061}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 50c4855562a1e4e2f9617d6a0a1b94c7, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  journalObject: {fileID: 146784403}
-  crystals:
-  - {fileID: 863493339}
-  - {fileID: 1359304402}
-  - {fileID: 103970896}
-  instructionText: {fileID: 1259651808}
-  ogopogo: {fileID: 0}
-  journalSound: {fileID: 8300000, guid: b87af332519d99f40b9284893b36e5fb, type: 3}
-  collectionSound: {fileID: 8300000, guid: 03d8d8cfc110f9e40a9d685093bfa24c, type: 3}
-  finalSound: {fileID: 8300000, guid: 603e2d708acaf624e87166774fd390cc, type: 3}
 --- !u!82 &775041069
 AudioSource:
   m_ObjectHideFlags: 0
