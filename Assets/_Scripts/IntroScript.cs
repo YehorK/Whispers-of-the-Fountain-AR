@@ -10,6 +10,7 @@ public class IntroScript : MonoBehaviour
 
     [SerializeField] GameProgressManager progressManager;
 
+    private bool hasInteracted = false;
     private AudioSource audioSource; // Single AudioSource component
 
     void Start()
@@ -32,7 +33,7 @@ public class IntroScript : MonoBehaviour
     void Update()
     {
         // Check for screen tap
-        if (Input.GetMouseButtonDown(0)) // Touch or left mouse button
+        if (!hasInteracted && Input.GetMouseButtonDown(0)) // Touch or left mouse button
         {
             HandleInteraction();
         }
@@ -50,6 +51,7 @@ public class IntroScript : MonoBehaviour
                 // Check if this fragment is the currently active one
                 if (progressManager != null && progressManager.IsFragmentActive(thisImageTarget))
                 {
+                    hasInteracted |= true;
                     ProcessSequence();
                 }
                 else
@@ -62,18 +64,33 @@ public class IntroScript : MonoBehaviour
 
     private void ProcessSequence()
     {
-        if (textObject != null)
         {
             textObject.SetActive(false);
             Debug.Log("Text deactivated");
         }
 
+        StartCoroutine(PlayAudioSequence());
+    }
+
+    private IEnumerator PlayAudioSequence()
+    {
+        // Play the first sound
         PlaySound(firstSound);
         Debug.Log("Playing first sound");
 
+        // Play the first sound
+        audioSource.clip = firstSound;
+        audioSource.PlayDelayed(0); // Ensures the AudioSource is ready before playing
+        Debug.Log("Playing first sound");
+
+        // Wait for the first sound to finish
+        yield return new WaitForSeconds(firstSound.length + 1);
+
+        // Play the second sound
         PlaySound(secondSound);
         Debug.Log("Playing second sound");
 
+        // Unlock the next fragment or perform other actions
         StartCoroutine(DelayedUnlockNextFragment(secondSound.length));
     }
 
@@ -93,8 +110,8 @@ public class IntroScript : MonoBehaviour
     {
         if (clip != null && audioSource != null)
         {
-            audioSource.clip = clip;
-            audioSource.Play();
+           // audioSource.clip = clip;
+            audioSource.PlayOneShot(clip);
         }
     }
 }

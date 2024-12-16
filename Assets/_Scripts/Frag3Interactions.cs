@@ -87,23 +87,47 @@ public class Frag3Interactions : MonoBehaviour
     private void ProcessSequence()
     {
         if (crystalObject != null)
+        {
             crystalObject.SetActive(false);
+        }
 
         if (journalObject != null)
+        {
             journalObject.SetActive(true);
+        }
 
+        // Start the audio sequence
+        StartCoroutine(PlayAudioSequence());
+    }
+
+    private IEnumerator PlayAudioSequence()
+    {
+        // Ensure the AudioSource is assigned and initialized
+        if (audioSource == null)
+        {
+            Debug.LogError("AudioSource is not assigned!");
+            yield break;
+        }
+
+        // Play the first sound
         PlaySound(interactionSound);
-        PlaySound(firstSound);
-
         Debug.Log("Crystal hidden, journal shown");
 
-        float audioClipsLength = interactionSound.length + firstSound.length;
-        StartCoroutine(DelayedUnlockNextFragment(audioClipsLength));
+        // Wait for the first sound to finish
+        yield return new WaitForSeconds(interactionSound.length);
+
+        // Play the second sound (firstSound)
+        PlaySound(firstSound);
+        Debug.Log("First sound played");
+
+        // Proceed with unlocking the next fragment
+        float totalAudioLength = interactionSound.length + firstSound.length + 1;  // Add 1 second buffer if needed
+        StartCoroutine(DelayedUnlockNextFragment(totalAudioLength));
     }
 
     private IEnumerator DelayedUnlockNextFragment(float delay)
     {
-        delay = delay + 1;
+        // Wait for the specified delay
         yield return new WaitForSeconds(delay);
 
         if (progressManager != null)
@@ -121,5 +145,4 @@ public class Frag3Interactions : MonoBehaviour
             audioSource.Play();
         }
     }
-
 }

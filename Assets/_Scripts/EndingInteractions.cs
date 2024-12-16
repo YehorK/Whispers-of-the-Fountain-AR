@@ -4,15 +4,14 @@ using UnityEngine;
 using TMPro;
 public class EndingInteractions : MonoBehaviour
 {
-    public GameObject journalObject;
-    public GameObject[] crystals;
-    public TMP_Text instructionText;
-    public GameObject ogopogo;
-    public AudioClip journalSound;
-    public AudioClip collectionSound;
-    public AudioClip finalSound;
-    public KeyCode testKey = KeyCode.Space;
-    public float fadeInDuration = 2f;
+    [SerializeField] GameObject journalObject;
+    [SerializeField] GameObject[] crystals;
+    [SerializeField] TMP_Text instructionText;
+    [SerializeField] GameObject ogopogo;
+    [SerializeField] AudioClip journalSound;
+    [SerializeField] AudioClip collectionSound;
+    [SerializeField] AudioClip finalSound;
+    private float fadeInDuration = 3f;
     
     private GameProgressManager progressManager;
     private AudioSource audioSource;
@@ -24,16 +23,28 @@ public class EndingInteractions : MonoBehaviour
 
     void Start()
     {
-        audioSource = GetComponent<AudioSource>() ?? gameObject.AddComponent<AudioSource>();
+        //audioSource = GetComponent<AudioSource>() ?? gameObject.AddComponent<AudioSource>();
+
+        // Get or add an AudioSource component
+        audioSource = GetComponent<AudioSource>();
+        if (audioSource == null)
+        {
+            audioSource = gameObject.AddComponent<AudioSource>();
+        }
+
         progressManager = FindObjectOfType<GameProgressManager>();
 
         // Initialize state
         foreach (GameObject crystal in crystals)
+        {
             crystal.SetActive(false);
+        }
         
         if (instructionText != null)
+        {
             instructionText.gameObject.SetActive(false);
-            
+        }
+
         if (ogopogo != null)
         {
             ogopogo.SetActive(false);
@@ -45,33 +56,31 @@ public class EndingInteractions : MonoBehaviour
     void Update()
     {
         if (Input.GetMouseButtonDown(0))
+        {
             HandleInteraction();
-        
-        if (Input.GetKeyDown(testKey))
-            HandleInteraction(true);
+        }
+
+        //if (!journalInteractionComplete)
+        //{
+        //    PlayJournalSequence();
+        //    return;
+        //}
     }
 
-    private void HandleInteraction(bool isTest = false)
+    private void HandleInteraction()
     {
         if (!progressManager.IsFragmentActive(gameObject)) return;
 
-        if (isTest)
+        if (crystalsCollected < crystals.Length)
         {
-            if (!journalInteractionComplete)
-            {
-                PlayJournalSequence();
-                return;
-            }
-            if (crystalsCollected < crystals.Length)
-            {
-                HandleCrystalTap(crystals[crystalsCollected]);
-                return;
-            }
-            if (crystalsCollected >= crystals.Length && !isFading)
-            {
-                PlayFinalSound();
-                return;
-            }
+            HandleCrystalTap(crystals[crystalsCollected]);
+            return;
+        }
+
+        if (crystalsCollected >= crystals.Length && !isFading)
+        {
+            PlayFinalSound();
+            return;
         }
 
         Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
