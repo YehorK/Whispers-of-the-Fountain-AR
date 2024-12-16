@@ -4,14 +4,15 @@ using UnityEngine;
 
 public class Frag1Interactions : MonoBehaviour
 {
-    public GameObject targetObject; // The object to toggle visibility
-    public GameObject crystalObject; // Object to hide
-    public GameObject journalObject; // Object to show
-    public AudioClip firstSound; // First sound clip to play
-    public AudioClip interactionSound; // Sound to play
-    public KeyCode testKey = KeyCode.Space;
+    [SerializeField] GameObject crystalObject; // Object to hide
+    [SerializeField] GameObject journalObject; // Object to show
+    [SerializeField] GameObject thisImageTarget; // Parent Image target of the this gameobject
+    [SerializeField] AudioClip firstSound; // First sound clip to play
+    [SerializeField] AudioClip interactionSound; // Sound to play
+    [SerializeField] KeyCode testKey = KeyCode.Space;
+
     private GameProgressManager progressManager;
-    private int interactionCount = 0;
+    //private int interactionCount = 0;
     private AudioSource audioSource; // Single AudioSource component
 
     void Start()
@@ -53,7 +54,7 @@ public class Frag1Interactions : MonoBehaviour
     {
         if (isTest) {
             // Check if this fragment is the currently active one
-            if (progressManager != null && progressManager.IsFragmentActive(gameObject))
+            if (progressManager != null && progressManager.IsFragmentActive(thisImageTarget))
             {
                 ProcessSequence();
             }
@@ -70,7 +71,7 @@ public class Frag1Interactions : MonoBehaviour
                 if (hit.transform == transform || hit.transform.IsChildOf(transform))
                 {
                     // Check if this fragment is the currently active one
-                    if (progressManager != null && progressManager.IsFragmentActive(gameObject))
+                    if (progressManager != null && progressManager.IsFragmentActive(thisImageTarget))
                     {
                         ProcessSequence();
                     }
@@ -85,27 +86,28 @@ public class Frag1Interactions : MonoBehaviour
 
     private void ProcessSequence()
     {
-        switch (interactionCount)
-        {
-            case 0: // First interaction
-                if (crystalObject != null)
-                    crystalObject.SetActive(false);
-                if (journalObject != null)
-                    journalObject.SetActive(true);
-                PlaySound(interactionSound);
-                PlaySound(firstSound);
-                Debug.Log("Crystal hidden, journal shown");
-                break;
-            case 1:
-                CollectFragment();
-                progressManager.UnlockNextFragment();
-                Debug.Log("Fragment collected and next unlocked");
-                break;
-        }
+        if (crystalObject != null)
+            crystalObject.SetActive(false);
+        if (journalObject != null)
+            journalObject.SetActive(true);
+        PlaySound(interactionSound);
+        PlaySound(firstSound);
+        Debug.Log("Crystal hidden, journal shown");
 
-        if (interactionCount < 4)
+        float audioClipsLength = interactionSound.length + firstSound.length;
+
+        StartCoroutine(DelayedUnlockNextFragment(audioClipsLength));
+    }
+
+    private IEnumerator DelayedUnlockNextFragment(float delay)
+    {
+        delay = delay + 1;
+        yield return new WaitForSeconds(delay);
+
+        if (progressManager != null)
         {
-            interactionCount++;
+            progressManager.UnlockNextFragment();
+            Debug.Log("Fragment collected and next unlocked");
         }
     }
 
@@ -115,15 +117,6 @@ public class Frag1Interactions : MonoBehaviour
         {
             audioSource.clip = clip;
             audioSource.Play();
-        }
-    }
-
-    private void CollectFragment()
-    {
-        // Hide or deactivate the target object
-        if (targetObject != null)
-        {
-            targetObject.SetActive(false);
         }
     }
 }

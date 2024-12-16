@@ -1,13 +1,14 @@
+using System.Collections;
 using UnityEngine;
 
 public class IntroScript : MonoBehaviour
 {
-    public GameObject targetObject; // The object to toggle visibility
-    public GameObject textObject; // The text to hide first
-    public AudioClip firstSound; // First sound clip to play
-    public AudioClip secondSound; // Second sound clip to play
-    public KeyCode testKey = KeyCode.Space;
-    private GameProgressManager progressManager;
+    [SerializeField] GameObject textObject; // The text to hide first
+    [SerializeField] GameObject thisImageTarget; // the parent ImageTarget
+    [SerializeField] AudioClip firstSound; // First sound clip to play
+    [SerializeField] AudioClip secondSound; // Second sound clip to play
+    [SerializeField] KeyCode testKey = KeyCode.Space;
+    [SerializeField] GameProgressManager progressManager;
     private int interactionCount = 0;
     private AudioSource audioSource; // Single AudioSource component
 
@@ -47,7 +48,7 @@ public class IntroScript : MonoBehaviour
     {
         if (isTest) {
             // Check if this fragment is the currently active one
-            if (progressManager != null && progressManager.IsFragmentActive(gameObject))
+            if (progressManager != null && progressManager.IsFragmentActive(thisImageTarget))
             {
                 ProcessSequence();
             }
@@ -64,7 +65,7 @@ public class IntroScript : MonoBehaviour
                 if (hit.transform == transform || hit.transform.IsChildOf(transform))
                 {
                     // Check if this fragment is the currently active one
-                    if (progressManager != null && progressManager.IsFragmentActive(gameObject))
+                    if (progressManager != null && progressManager.IsFragmentActive(thisImageTarget))
                     {
                         ProcessSequence();
                     }
@@ -90,22 +91,33 @@ public class IntroScript : MonoBehaviour
                 PlaySound(firstSound);
                 Debug.Log("Playing first sound");
                 break;
+
             case 1: // Second interaction
                 PlaySound(secondSound);
                 Debug.Log("Playing second sound");
-                break;
-            case 2: // Fourth interaction
-                CollectFragment();
-                progressManager.UnlockNextFragment();
-                Debug.Log("Fragment collected and next unlocked");
+                StartCoroutine(DelayedUnlockNextFragment(secondSound.length));
                 break;
         }
 
-        if (interactionCount < 4)
+        //if (interactionCount < 4)
+        //{
+        //    interactionCount++;
+        //}
+        interactionCount++;
+    }
+
+    private IEnumerator DelayedUnlockNextFragment(float delay)
+    {
+        delay = delay + 1;
+        yield return new WaitForSeconds(delay);
+
+        if (progressManager != null)
         {
-            interactionCount++;
+            progressManager.UnlockNextFragment();
+            Debug.Log("Fragment collected and next unlocked");
         }
     }
+
 
     private void PlaySound(AudioClip clip)
     {
@@ -113,15 +125,6 @@ public class IntroScript : MonoBehaviour
         {
             audioSource.clip = clip;
             audioSource.Play();
-        }
-    }
-
-    private void CollectFragment()
-    {
-        // Hide or deactivate the target object
-        if (targetObject != null)
-        {
-            targetObject.SetActive(false);
         }
     }
 }
