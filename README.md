@@ -70,6 +70,6 @@ Crystal Asset by iPoly3D: https://poly.pizza/m/7Do2pm4F8O
 
 Journal models by Quaternius: https://poly.pizza/m/h3Wh4fxSQX https://poly.pizza/m/JO0bV6osMQ
 
-Vuforia Image Targets generated with DallE-3 in ChatGPT.
+Vuforia Image Targets generated with Dall-E 3 in ChatGPT.
 
 
