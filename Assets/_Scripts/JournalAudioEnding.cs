@@ -23,6 +23,7 @@ public class JournalAudioEnding : MonoBehaviour
         if (!hasAudioPlayed && audioSource != null)
         {
             audioSource.Play();
+            Debug.Log("Playing the audio");
             hasAudioPlayed = true; // Mark the audio as played
         }
     }
