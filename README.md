@@ -18,7 +18,7 @@ The project also has a [VR implementation](https://github.com/YehorK/Whispers-of
 - Additionally, the build (.apk file) made for Android can be found [here](https://ubcca-my.sharepoint.com/:u:/r/personal/rishav_banerjee_ubc_ca/Documents/IMTC%20505%20(%2724)/ARcheologists/Whispers%20of%20the%20Fountain/the%20builds/Whispers%20of%20the%20Fountain%20AR.apk?csf=1&web=1&e=Pflano)
 
 ## Video demo:
-[![Watch the video](https://img.youtube.com/vi/AP2FHY7DFlo/maxresdefault.jpg)](https://youtu.be/AP2FHY7DFlo)
+[Watch the AR video](https://youtu.be/4WwmLCUnL6k?si=mAkPJzesjKFZvM4y)
 
 ## Storyline Overview
 Our project takes players on an Augmented Reality treasure-hunting adventure through their campus, blending mystery, humor, and local Okanagan lore. The story begins with the protagonist discovering an ancient journal on the ground on campus (AR). The journal reveals the legend of Ogopogo, a spirit imprisoned beneath a fountain, whose freedom hinges on the retrieval of his scattered soul fragments. Guided by the journal, the player explores the UBCO Courtyard, finds fragments of Ogopogos soul, and even deals with creepy crawlies!
