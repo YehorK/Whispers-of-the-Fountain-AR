@@ -10,7 +10,6 @@ The project also has a [VR implementation](https://github.com/YehorK/Whispers-of
 - [Video Demo](#video-demo)
 - [Storyline Overview](#storyline-overview)
 - [Project Features](#project-features)
-- [Future Works](#future-works)
 - [Acknowledgement](#acknowledgement)
 
 ## Project Setup
@@ -62,9 +61,6 @@ Marker Location: The front of the fountain.
 
 Upon scanning, the journal appears congratulating the player on their dedication in collecting the fragments and asks them to toss them all in the fountain to free Ogopogo. The three fragments then appear, each in a different color, and the player is supposed to tap on each fragment to proceed. After tossing all the fragments, the journal disappears and Ogopogo, a snake, appears and starts narrating the closing script. When the narration is done, Ogopogo fades out from the scene. This was done by fading the snake GameObject material colors. 
 
-
-## Future Works
-TBD
 
 ## Acknowledgement
 Spider by Quaternius: https://poly.pizza/m/yRYJiAJyiM
