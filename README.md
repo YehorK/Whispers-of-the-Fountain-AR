@@ -15,7 +15,7 @@ The project also has a [VR implementation](https://github.com/YehorK/Whispers-of
 ## Project Setup
 - You can simply git clone the main branch. The project is using Unity 2022.3.45f version.
 - Due to the large file of the Vuforia configuration, make sure to download the .tgz file from [here](https://ubcca-my.sharepoint.com/:u:/r/personal/rishav_banerjee_ubc_ca/Documents/IMTC%20505%20(%2724)/ARcheologists/Whispers%20of%20the%20Fountain/AR%20app%20Vuforia%20tgz%20file/com.ptc.vuforia.engine-10.28.4.tgz?csf=1&web=1&e=hscZSZ), and place it in the Packages folder (next to the manifest) before opening the project to avoid any errors or mismatch in versions.
-- Additionally, the build (.apk file) made for Quest 2 headset can be found [here](https://ubcca-my.sharepoint.com/:u:/r/personal/rishav_banerjee_ubc_ca/Documents/IMTC%20505%20(%2724)/ARcheologists/Whispers%20of%20the%20Fountain/the%20builds/Whispers%20of%20the%20Fountain%20AR.apk?csf=1&web=1&e=Pflano)
+- Additionally, the build (.apk file) made for Android can be found [here](https://ubcca-my.sharepoint.com/:u:/r/personal/rishav_banerjee_ubc_ca/Documents/IMTC%20505%20(%2724)/ARcheologists/Whispers%20of%20the%20Fountain/the%20builds/Whispers%20of%20the%20Fountain%20AR.apk?csf=1&web=1&e=Pflano)
 
 ## Video demo:
 [![Watch the video](https://img.youtube.com/vi/AP2FHY7DFlo/maxresdefault.jpg)](https://youtu.be/AP2FHY7DFlo)
